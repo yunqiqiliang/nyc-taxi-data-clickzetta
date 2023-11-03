@@ -2,7 +2,9 @@
 
 ## 场景：将大批量Public URL Parquet文件里的数据（New York City Taxi and For-Hire Vehicle Data）导入到云器Lakehouse
 1、download_raw_data.sh，将Public URL Parquet文件下载到本地
+
 2、initialize_database.sh，通过Lakehouse SQLLine命令创建云器Lakehouse的schema和tables；
+
 3、Import taxi and FHV data，用R转换Parquet到CSV文件、通过Lakehouse SQLLine copy命令将数据导入到云器Lakehouse
 
 
