@@ -8,7 +8,7 @@
 3、Import taxi and FHV data，用R转换Parquet文件到CSV文件、通过Lakehouse SQLLine copy命令将本地CSV文件里的数据导入到云器Lakehouse的表里，支持批量多个文件的导入。
 
 
-Scripts to download, process, and analyze data from 3+ billion taxi and for-hire vehicle (Uber, Lyft, etc.) trips originating in New York City since 2009. There are separate sets of scripts for storing data in either a [PostgreSQL](https://www.postgresql.org/) or [ClickHouse](https://clickhouse.com/) database.
+Scripts to download, process, and analyze data from 3+ billion taxi and for-hire vehicle (Uber, Lyft, etc.) trips originating in New York City since 2009. There are separate sets of scripts for storing data in [ClickZetta Lakehouse](https://yunqi.tech/) database.
 
 Most of the [raw data](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) comes from the NYC Taxi & Limousine Commission.
 
@@ -38,6 +38,9 @@ Note that R used to be optional for this repo, but is required starting with the
 ##### 3. Download raw data
 
 `./download_raw_data.sh`
+
+while done modify download_raw_data.sh and run again to download data from 202212：
+wget -i setup_files/raw_data_urls_new.txt -P data/ -w 2
 
 ##### 4. Initialize database and set up schema
 
