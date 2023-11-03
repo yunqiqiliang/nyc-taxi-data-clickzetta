@@ -47,42 +47,6 @@ Note that R used to be optional for this repo, but is required starting with the
 
 Note that the full import process might take several hours or possibly even over a day depending on computing power
 
-## ClickHouse Instructions
-
-See the [`clickhouse`](https://github.com/toddwschneider/nyc-taxi-data/tree/master/clickhouse) directory
-
-## PostgreSQL Instructions
-
-##### 1. Install [PostgreSQL](https://www.postgresql.org/download/) and [PostGIS](https://postgis.net/install)
-
-Both are available via [Homebrew](https://brew.sh/) on Mac
-
-##### 2. Install [R](https://www.r-project.org/)
-
-From [CRAN](https://cloud.r-project.org/)
-
-Note that R used to be optional for this repo, but is required starting with the 2022 file format change. The scripts use R to convert Parquet files to CSV before loading into Postgres. There are other ways to convert from Parquet to CSV that wouldn't require R, but I found that R's `arrow` package was faster than some of the other CLI tools I tried
-
-##### 3. Download raw data
-
-`./download_raw_data.sh`
-
-##### 4. Initialize database and set up schema
-
-`./initialize_database.sh`
-
-##### 5. Import taxi and FHV data
-
-`./import_yellow_taxi_trip_data.sh`
-<br>
-`./import_green_taxi_trip_data.sh`
-<br>
-`./import_fhv_taxi_trip_data.sh`
-<br>
-`./import_fhvhv_trip_data.sh`
-
-Note that the full import process might take several hours or possibly even over a day depending on computing power
-
 ## Schema
 
 - `trips` table contains all yellow and green taxi trips. Each trip has a `cab_type_id`, which references the `cab_types` table and refers to one of `yellow` or `green`
