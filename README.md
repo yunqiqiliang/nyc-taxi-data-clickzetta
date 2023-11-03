@@ -4,6 +4,8 @@
 1、download_raw_data.sh，将Public URL Parquet文件下载到本地
 
 2、initialize_database.sh，通过Lakehouse SQLLine命令创建云器Lakehouse的schema和tables；
+![image](https://github.com/yunqiqiliang/nyc-taxi-data-clickzetta/assets/132561395/1803983a-b491-4b62-8088-d0d0514069e5)
+
 
 3、Import taxi and FHV data，用R转换Parquet到CSV文件、通过Lakehouse SQLLine copy命令将数据导入到云器Lakehouse
 
