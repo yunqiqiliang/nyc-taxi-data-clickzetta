@@ -7,11 +7,10 @@ for parquet_filename in data/green_tripdata*.parquet; do
   ./setup_files/convert_parquet_to_csv.R ${parquet_filename}
 
   csv_filename=${parquet_filename/.parquet/.csv}
-  cat $csv_filename | psql nyc-taxi-data -c "COPY green_tripdata_staging ${green_schema} FROM stdin CSV HEADER;"
+  sh ../sqlline_cz/sqlline properties ../sqlline_cz/clickzetta.properties -e "set copy.csv.with.header=false;set copy.csv.skip.header=true; copy green_tripdata_staging from '${csv_filename}';"
   echo "`date`: finished raw load for ${csv_filename}"
 
-  psql nyc-taxi-data -f setup_files/populate_green_trips.sql
-  echo "`date`: loaded trips for ${csv_filename}"
+
 
   rm -f $csv_filename
   echo "`date`: deleted ${csv_filename}"
