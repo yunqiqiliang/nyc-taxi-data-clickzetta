@@ -1,4 +1,5 @@
 
+--Migrate DDL statement from PostgresSQL to ClickZetta Lakehouse SQL by ClickZetta Travel Toolkit
 CREATE TABLE if not exists green_tripdata_staging (
   id BIGINT,
   vendor_id INT,
