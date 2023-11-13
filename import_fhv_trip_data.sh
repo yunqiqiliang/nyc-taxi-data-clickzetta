@@ -12,9 +12,6 @@ for parquet_filename in data/fhv_tripdata*.parquet; do
 
   echo "`date`: finished raw load for ${csv_filename}"
 
-  # psql nyc-taxi-data -f setup_files/populate_fhv_trips.sql
-  # echo "`date`: loaded trips for ${csv_filename}"
-
   rm -f $csv_filename
   echo "`date`: deleted ${csv_filename}"
 done;
