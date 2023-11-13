@@ -10,7 +10,6 @@ for parquet_filename in data/fhvhv_tripdata*.parquet; do
   sh ../sqlline_cz/sqlline properties ../sqlline_cz/clickzetta.properties -e "set copy.csv.with.header=false;set copy.csv.skip.header=true; copy fhv_trips_staging from '${csv_filename}';"
   echo "`date`: finished raw load for ${csv_filename}"
 
-
   rm -f $csv_filename
   echo "`date`: deleted ${csv_filename}"
 done;
