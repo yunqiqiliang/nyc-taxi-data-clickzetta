@@ -7,4 +7,3 @@ for filename in data/uber-raw-data*14.csv; do
   echo "`date`: finished raw load for $filename"
 done;
 
-# psql nyc-taxi-data -f setup_files/populate_2014_uber_trips.sql
